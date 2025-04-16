@@ -1,12 +1,12 @@
 # Lv1. 코드 개선
 ### 1-1 : 코드 개선 퀴즈 - Early Return
-package org.example.expert.domain.auth.service.AuthService 의 'signup()'
+package org.example.expert.domain.auth.service.AuthService; 의 'signup()'
 ### 1-2 : 리팩토링 퀴즈 - 불필요한 if-else 피하기
-package org.example.expert.client.WeatherClient 에 있는 'getTodayWeather()'
+package org.example.expert.client.WeatherClient; 에 있는 'getTodayWeather()'
 ### 1-3 : 코드 개선 퀴즈 - Validation
-package org.example.expert.domain.user.service.UserService 의 'changePassword()'
-package org.example.expert.domain.user.controller.UserController의 'changePassword()'
-package org.example.expert.domain.user.dto.request.UserChangePasswordRequest
+package org.example.expert.domain.user.service.UserService; 의 'changePassword()'
+package org.example.expert.domain.user.controller.UserController; 의 'changePassword()'
+package org.example.expert.domain.user.dto.request.UserChangePasswordRequest;
 # Lv2. N+1 문제
 
 1) 코드 분석
@@ -37,7 +37,7 @@ todos table 전체 중 일정 범위를 페이징하고 수정 일자 기준 내
  이는 페이징에서 전체 데이터 로드 후 메모리 상의 필터링을 수행하게 함을 이유로, 적절하지 못한 N+1 방지 대책이다.
   
 2) @EntityGraph 기반의 구현으로 수정
-
+   package org.example.expert.domain.todo.repository; 의 'findAllByOrderByModifiedAtDesc()'
   
 # Lv3 테스트 코드 연습
 # Lv4. API 로깅

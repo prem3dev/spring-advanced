@@ -39,4 +39,9 @@ public class UserService {
 
         user.changePassword(passwordEncoder.encode(userChangePasswordRequest.getNewPassword()));
     }
+
+    @Transactional(readOnly = true)
+    public User findUserById(Long id) {
+        return userRepository.findById(id).orElseThrow(() -> new InvalidRequestException("User not found"));
+    }
 }

@@ -41,5 +41,19 @@ todos table 전체 중 일정 범위를 페이징하고 수정 일자 기준 내
   
 # Lv3 테스트 코드 연습
 # Lv4. API 로깅
+1) Interceptor
+   
+package org.example.expert.config.AdminInterceptor;
+   package org.example.expert.config.WebConfig;
+
+![Interceptor.png](img.png)
+2) AOP
+
+package org.example.expert.domain.common.aop.AdminAspect;
+   package org.example.expert.domain.common.annotation.Admin;
+   package org.example.expert.domain.user.controller.UserAdminController;
+package org.example.expert.domain.comment.controller.CommentAdminController;
+![img_1.png](img_1.png)
+
 # Lv5. ‘내’가 정의한 문제와 해결 과정
 # Lv 6. 테스트 커버리지

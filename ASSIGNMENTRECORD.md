@@ -40,6 +40,32 @@ todos table 전체 중 일정 범위를 페이징하고 수정 일자 기준 내
    package org.example.expert.domain.todo.repository; 의 'findAllByOrderByModifiedAtDesc()'
   
 # Lv3 테스트 코드 연습
+1) 테스트코드 연습 -1(성공로직)
+
+package test.java.org.example.expert.config.PasswordEncoderTest;
+
+![Lv3-1](img_2.png)
+
+2) 테스트코드 연습 -2(예외로직)
+
+1번 케이스
+
+package test.java.org.example.expert.domain.manager.service.ManagerServiceTest;의 manager_목록_조회_시_Todo가_없다면_IRE_에러를_던진다()
+
+![Lv3-2-1번 케이스](img_3.png)
+
+2번 케이스
+
+package test.java.org.example.expert.domain.comment.service.CommentServiceTest;의 comment_등록_중_할일을_찾지_못해_에러가_발생한다()
+
+![Lv3-2-2번 케이스](img_4.png)
+
+3번 케이스
+
+package org.example.expert.domain.manager.service.ManagerService; 의 saveManager()
+package test.java.org.example.expert.domain.manager.service.ManagerServiceTest; 의 todo의_user가_null인_경우_예외가_발생한다()
+
+![Lv3-2-3번 케이스](img_5.png)
 # Lv4. API 로깅
 1) Interceptor
    
@@ -56,4 +82,4 @@ package org.example.expert.domain.comment.controller.CommentAdminController;
 ![img_1.png](img_1.png)
 
 # Lv5. ‘내’가 정의한 문제와 해결 과정
-# Lv 6. 테스트 커버리지
+# Lv6. 테스트 커버리지

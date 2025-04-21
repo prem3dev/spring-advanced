@@ -104,23 +104,31 @@ b.[해결 방안]
 
 b-1 @Pattern 추가
 
-비밀번호 수정 요청과 같은 요건의 valid @Pattern으로 회원가입 요청의 비밀번호 필드를 제한
+package org.example.expert.domain.auth.dto.request.SignupRequest;
+
+* 비밀번호 수정 요청과 같은 요건의 valid @Pattern으로 회원가입 요청의 비밀번호 필드를 제한
 
 b-2 @Column(nullable = false), @NotBlank 추가
 
-도메인 관점에서 모든 유저는 최소 하나의 역할을 가지고 있어야 한다
+package org.example.expert.domain.user.entity.User;
 
-사용자가 회원가입을 하든, 어드민이 계정을 등록하든,
+package org.example.expert.domain.auth.dto.request.SignupRequest;
+
+package org.example.expert.domain.user.dto.request.UserRoleChangeRequest;
+
+* 도메인 관점에서 모든 유저는 최소 하나의 역할을 가지고 있어야 한다
+
+  사용자가 회원가입을 하든, 어드민이 계정을 등록하든,
 시스템에 등록된 이상 최소한의 권한(ROLE_USER 등)은 반드시 있어야 한다.
 
-또한 특정 API가 UserRole.ADMIN만 접근 가능하도록 설계되어 있을 때,
+  또한 특정 API가 UserRole.ADMIN만 접근 가능하도록 설계되어 있을 때,
 null 값은 그 어떤 역할도 아니므로 예외 처리 코드가 반드시 필요해진다.
 
-이건 불필요한 복잡도를 유발하고, 실수로 인한 보안 이슈로도 이어질 수 있다.
+  이건 불필요한 복잡도를 유발하고, 실수로 인한 보안 이슈로도 이어질 수 있다.
 
-이는 admin 계정의 유저 역할 수정 api 요청에서도 지켜져야 한다.
+  이는 admin 계정의 유저 역할 수정 api 요청에서도 지켜져야 한다.
 
-그렇기 때문에 User Entity의 userRole 필드 상단에 @Column(nullable = false)를 추가하였고
+  그렇기 때문에 User Entity의 userRole 필드 상단에 @Column(nullable = false)를 추가하였고
 SignupRequest의 userRole 필드 상단에 @Not Blank, UserRoleChangeRequest의 role 필드 상단에도 @Not Blank를 설정하였다.
 
 c.[해결 완료]
@@ -131,8 +139,7 @@ c-1 회고
 
 비밀번호는 더욱 제한적인 요건으로 보호 되어야 하며, userRole은 API 보안 및 정책 로직의 기준값이 되므로 도메인 설계 상에서도 필수값(non-nullable)으로 강제되어야 한다.
 
-
-3)Todo와 Manager 관계 설계
+2) Todo와 Manager 관계 설계
 
 a.[문제 인식 및 정의]
 
@@ -186,6 +193,17 @@ Manager(user, todo)가 두 번 저장될 수 있는 가능성이 생긴다.
 이걸 막지 않으면, 같은 유저가 같은 일정에 매니저로 여러 번 저장되는 이상한 상황이 생길 수 있다.
 
 b-2.[해결 과정]
+
+package org.example.expert.domain.todo.entity.Todo;
+
+package org.example.expert.domain.todo.service.TodoService;
+
+package org.example.expert.domain.manager.service.ManagerService;
+
+package org.example.expert.domain.manager.repository.ManagerRepository;
+
+package org.example.expert.domain.manager.entity.Manager;
+
 
 | 조치 | 내용                                       |
 |------|------------------------------------------|

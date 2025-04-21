@@ -59,6 +59,13 @@ public class ManagerService {
         );
     }
 
+
+    public void saveSelfManager(User user, Todo todo) {
+        if (!managerRepository.existsByUserAndTodo(user, todo)) {
+            managerRepository.save(new Manager(user, todo));
+        }
+    }
+
     @Transactional(readOnly = true)
     public List<ManagerResponse> getManagers(long todoId) {
         Todo todo = todoRepository.findById(todoId)

@@ -9,7 +9,7 @@ import org.example.expert.domain.user.entity.User;
 @Getter
 @Entity
 @NoArgsConstructor
-@Table(name = "managers")
+@Table(name = "managers", uniqueConstraints = @UniqueConstraint(columnNames = {"user_id", "todo_id"}))
 public class Manager {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

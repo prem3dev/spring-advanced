@@ -1,5 +1,6 @@
 package org.example.expert.domain.user.entity;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ public class User extends Timestamped {
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private UserRole userRole;
 
     public User(String email, String password, UserRole userRole) {
